@@ -1,0 +1,26 @@
+name: Generate Doxygen Documentation
+
+on:
+  push:
+    tags:
+      - 'v*' # Rulează doar la push de tag gen: v1.0.0, v2.3.4 etc
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🛠 Install Doxygen
+        run: sudo apt-get install -y doxygen
+
+      - name: 📄 Run Doxygen
+        run: doxygen Doxyfile
+
+      - name: 📦 Upload documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: laboratories/cicd-documentation/html
