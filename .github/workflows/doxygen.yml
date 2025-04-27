@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: documentation
-          path: html
+          path: laboratories/cicd-documentation/html/html
