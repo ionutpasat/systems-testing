@@ -67,19 +67,24 @@ class Tree:
     def printTree(self):
         if self.root is not None:
             self._printInorderTree(self.root)
-
+    # inorder = left, root, right
+    # inorder definition = prints the left subtree first, then the root node, and finally the right subtree
     def _printInorderTree(self, node):
         if node is not None:
             self._printInorderTree(node.left)
             print(str(node.data) + ' ')
             self._printInorderTree(node.right)
 
+    # preorder = root, left, right
+    # preorder definition = prints the root node first, then the left subtree, and finally the right subtree
     def _printPreorderTree(self, node):
         if node is not None:
             print(str(node.data) + ' ')
             self._printPreorderTree(node.left)
             self._printPreorderTree(node.right)
 
+    # postorder = left, right, root
+    # postorder definition = prints the left subtree, then the right subtree, and finally the root node
     def _printPostorderTree(self, node):
         if node is not None:
             self._printPostorderTree(node.left)
